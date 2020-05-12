@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Word order</title>
+  </head>
+  <body class="d-flex flex-column align-items-center">
+    <header>
+      <h1 class="text-light display-4 display-md-2 text-center my-5 mx-2">
+        Let's put some order in this words
+      </h1>
+    </header>
+    <main class="d-flex flex-column justify-content-center align-items-center">
+      <div id="searchBar" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Key word</span>
+        </div>
+        <input
+          placeholder="Like 'Angel'"
+          type="text"
+          class="form-control"
+          aria-label="Enter a key word"
+          id="searchText"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button" id="searchTextButton">
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- // -->
+      <!-- CARD WITH THE TEXT TO ORDER -->
+      <!-- // -->
+
+      <div class="card bg-light my-5">
+        <div id="movieTitle" class="card-header">
+          <div class="d-flex justify-content-center">
+            <div
+              id="spinner"
+              class="spinner-border text-secondary"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div id="moviePlot" class="card-body bg-light">
+          <div class="d-flex justify-content-center">
+            <div
+              id="spinner"
+              class="spinner-border text-secondary"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- // -->
+      <!-- BUTTON COLLECTION FOR ACTIONS -->
+      <!-- // -->
+
+      <div>
+        <div class="d-flex flex-column flex-sm-row justify-content-center">
+          <button
+            id="orderButton"
+            type="button"
+            class="btn btn-info btn-lg m-2"
+          >
+            Order words
+          </button>
+          <button
+            id="refreshText"
+            type="button"
+            class="btn btn-secondary btn-lg m-2"
+          >
+            Get new text
+          </button>
+
+          <button
+            class="btn btn-secondary btn-lg m-2"
+            type="button"
+            data-toggle="collapse"
+            data-target="#inputYourOwn"
+            aria-expanded="false"
+            aria-controls="inputYourOwn"
+          >
+            Or write your own
+          </button>
+        </div>
+
+        <!-- // -->
+        <!-- USER TEXT FIELD FOR CUSTOM TEXT -->
+        <!-- // -->
+
+        <div class="collapse my-4" id="inputYourOwn">
+          <div class="card card-body">
+            <p>
+              Add your text here
+            </p>
+            <textarea class="form-control" id="userText" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider my-5"></div>
+
+      <!-- // -->
+      <!-- RESULTS WITH THE ORDERED WORDS -->
+      <!-- // -->
+
+      <div class="card bg-light mt-2 mb-5">
+        <div id="resultBox" class="card-body bg-light">
+          <!-- <p  class="card-text"></p> -->
+        </div>
+      </div>
+      <div class="d-flex align-items-center mb-5">
+        <button
+          id="clearResults"
+          type="button"
+          class="btn btn-warning btn-lg m-2 text-light"
+        >
+          Clear results
+        </button>
+      </div>
+    </main>
+    <footer
+      class="fixed-bottom bg-info text-white d-flex justify-content-center align-items-center py-2 mt-2"
+    >
+      <i class="fas fa-copyright mx-2"></i>
+      ·
+      <a href="https://github.com/CodeAlga" class="text-light mx-2"
+        >GitHub CodeAlga</a
+      >
+      ·
+      <i class="fab fa-github mx-2"></i>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a8f0a724d4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./fetch.js"></script>
+    <script src="./order.js"></script>
+    <script src="./init.js"></script>
+  </body>
+</html>
