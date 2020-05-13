@@ -46,13 +46,11 @@ function newSearch() {
 }
 
 async function fetchFromApi(searchValue, i) {
-  let url = `http://www.omdbapi.com/?apikey=39f91dd2&s=*${searchValue}*&page=${i}`;
+  let url = `https://www.omdbapi.com/?apikey=39f91dd2&s=*${searchValue}*&page=${i}`;
 
   await fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.Response);
-
       if (data.Response == "False" && !displayError) {
         displayError = true;
         handleError();
@@ -70,7 +68,7 @@ async function fetchFromApi(searchValue, i) {
 
 async function selectMovie() {
   let randomNumber = Math.floor(Math.random() * 80 + 1);
-  let url = `http://www.omdbapi.com/?i=${imbdIDArray[randomNumber]}&plot=full&apikey=39f91dd2`;
+  let url = `https://www.omdbapi.com/?i=${imbdIDArray[randomNumber]}&plot=full&apikey=39f91dd2`;
 
   let movieData = {};
 
